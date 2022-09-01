@@ -2,7 +2,8 @@
 //for testing functions declared in index.js
 
 //imports
-const { sum } = require('./index');
+const { sum, fetchData } = require('./index');
+
 
 /*******************************
  * 
@@ -112,3 +113,40 @@ test('object assignment', () => {
  * Async Code
  * 
  *******************************/
+
+//Non async
+test('the data is Peanut Butter', () => {
+    return fetchData('/pb').then(data => {
+      expect(data).toBe('Peanut Butter');
+    });
+  });
+
+  //Async await
+  test('the data is Peanut Butter', async () => {
+    const data = await fetchData('/pb');
+    expect(data).toBe('Peanut Butter');
+  });
+  
+  test('the fetch fails with an error', async () => {
+    expect.assertions(1);
+    try {
+      await fetchData();
+    } catch (e) {
+      expect(e).toMatch('error');
+    }
+  });
+
+  test('the data is peanut butter', async () => {
+    await expect(fetchData('/pb')).resolves.toBe('Peanut Butter');
+  });
+  
+  test('the fetch fails with an error', async () => {
+    await expect(fetchData()).rejects.toMatch('error');
+  });
+
+  test('the fetch fails with an error', () => {
+    expect.assertions(1);
+    return fetchData().catch(e => expect(e).toMatch('error'));
+  });
+
+  //Callbacks
