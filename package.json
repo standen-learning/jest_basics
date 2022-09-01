@@ -1,0 +1,26 @@
+{
+  "name": "jest_basics",
+  "version": "1.0.0",
+  "description": "learning jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/standen-learning/jest_basics.git"
+  },
+  "keywords": [
+    "jest",
+    "testing"
+  ],
+  "author": "sean",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/standen-learning/jest_basics/issues"
+  },
+  "homepage": "https://github.com/standen-learning/jest_basics#readme",
+  "devDependencies": {
+    "jest": "^29.0.1"
+  }
+}
